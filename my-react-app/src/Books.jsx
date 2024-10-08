@@ -7,11 +7,11 @@ function Books() {
 
     //Get products from API
     useEffect(() => {
-        fetch("https://freetestapi.com/api/v1/books?limit=15")
+        fetch("https://www.googleapis.com/books/v1/volumes?q=react&key=AIzaSyCrzZbMrZtyrmSvFrBQH5NEoiMxjf1CbO4")
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                setBooks(data)
+                setBooks(data.items)
             })
     }, [])
 
@@ -28,9 +28,10 @@ function Books() {
             <input type="text" />
             <ul className="bookList">{books.map((book) => 
                 <div className="bookEntry" key={book.id}>
-                    <div className="bookImage"></div>
-                    <h3>{book.title}</h3>
-                    <h4>{book.description}</h4>
+                    <div className="bookImage">
+                        <img src="{book.volumeInfo.imageLinks.smallThumbnail}"></img></div>
+                    <h3>{book.volumeInfo.title}</h3>
+                    <h4>{book.volumeInfo.subtitle}</h4>
                     <button onClick={() => handleClick(book)}></button>
                 </div>
                 )}
