@@ -3,8 +3,8 @@ import { useEffect } from "react";
 
 function Books() {
     const [books, setBooks] = useState([]);
-    const [searchBooks, setSearchbooks] = useState([]);
-    const [filteredBooks, setfilteredBooks] = useState([]);
+    const [searchBooks, setSearchBooks] = useState([]);
+    const [searchTerm, setSearchTerm] = useState("");
 
     //Get products from API
     useEffect(() => {
@@ -12,28 +12,29 @@ function Books() {
             .then(res => res.json())
             .then(data => {
                 console.log(data);
-                setBooks(data.items)
+                setBooks(data.items);
+                setSearchBooks(data.items);
             })
     }, [])
 
     const handleInputChange = (e) => {
         const searchTerm = e.target.value;
-        setSearchbooks(searchTerm)
+        setSearchTerm(searchTerm);
 
         const filteredItems = books.filter((book) =>
             book.volumeInfo.title.toLowerCase().includes(searchTerm.toLowerCase())
             );
 
-        setfilteredBooks(filteredItems);
+        setSearchBooks(filteredItems);
     }
 
     return (
         <div className="books">
             <input type="text" className="bookSearch"
-                value={searchBooks}
+                value={searchTerm}
                 onChange={handleInputChange} />
 
-            <ul className="bookList">{filteredBooks.map((book) =>
+            <ul className="bookList">{searchBooks.map((book) =>
                 <div className="bookEntry" key={book.id}>
                     <div className="bookImage">
                         <img src="{book.volumeInfo.imageLinks.smallThumbnail}"></img></div>
