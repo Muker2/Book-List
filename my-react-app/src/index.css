@@ -21,13 +21,15 @@ body{
 }
 
 .bookList{
-        display: grid;
-        gap: 30px;
-        grid-template-columns: repeat(4, 1fr);
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
       
 }
 
 .bookEntry{
+    display: flex;
+    width: 100%;
     border: 1px solid black;
     transition: all .2s ease-in-out; 
 
@@ -36,6 +38,19 @@ body{
 .bookEntry:hover { 
     transform: scale(1.03); 
   }
+
+.bookEntry img {
+    min-width: 128px;
+}
+
+.bookEntry h5{
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 5; /* number of lines to show */
+           line-clamp: 5;
+   -webkit-box-orient: vertical;
+}
 
 .bookSearch{
 

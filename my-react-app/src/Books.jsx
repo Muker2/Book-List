@@ -38,9 +38,11 @@ function Books() {
                 <div className="bookEntry" key={book.id}>
                     <div className="bookImage">
                         <img src={book.volumeInfo.imageLinks?.smallThumbnail}></img></div>
+                    <div className="bookText">
                     <h3>{book.volumeInfo.title}</h3>
                     <h4>{book.volumeInfo.subtitle}</h4>
-                    <button onClick={() => handleClick(book)}></button>
+                    <h5>{book.volumeInfo.description}</h5>
+                    </div>
                 </div>
             )}
             </ul>
