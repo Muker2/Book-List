@@ -37,7 +37,7 @@ function Books() {
             <ul className="bookList">{searchBooks.map((book) =>
                 <div className="bookEntry" key={book.id}>
                     <div className="bookImage">
-                        <img src="{book.volumeInfo.imageLinks.smallThumbnail}"></img></div>
+                        <img src={book.volumeInfo.imageLinks?.smallThumbnail}></img></div>
                     <h3>{book.volumeInfo.title}</h3>
                     <h4>{book.volumeInfo.subtitle}</h4>
                     <button onClick={() => handleClick(book)}></button>
