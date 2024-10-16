@@ -1,7 +1,11 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color:  #353935 ;
+    background-color:  #1B1212 ;
 
+}
+
+.bookListHeader{
+    font-family: "Creepster", system-ui;
 }
 
 .nav{
@@ -17,9 +21,10 @@ body{
 }
 
 .bookList{
-        display: flex;
-        flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
         gap: 10px;
+        padding: 0;
       
 }
 
