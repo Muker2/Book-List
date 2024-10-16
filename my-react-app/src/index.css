@@ -1,12 +1,8 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
-}
+    background-color:  #353935 ;
 
-.banner{
-    width: 100%;
-    height: 200px;
-    background-color: blue;
-}  
+}
 
 .nav{
     display: flex;
@@ -30,17 +26,22 @@ body{
 .bookEntry{
     display: flex;
     width: 100%;
+    background-color: #FAF9F6;
     border: 1px solid black;
     transition: all .2s ease-in-out; 
 
 }
 
 .bookEntry:hover { 
-    transform: scale(1.03); 
+    transform: scale(1.007); 
   }
 
 .bookEntry img {
     min-width: 128px;
+}
+
+.bookEntry h3, h4, h5{
+    margin-left: 10px;
 }
 
 .bookEntry h5{
@@ -53,7 +54,6 @@ body{
 }
 
 .bookSearch{
-
     width: 50%;
 }
 
