@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import Sidebar from "./Sidebar";
 
 function Books() {
     const [books, setBooks] = useState([]);
@@ -37,6 +38,7 @@ function Books() {
                       e fear-inducing techniques that have left viewers trembling for decades. Discover how horror on the
                        big screen reflects society’s darkest fears and why we can’t look away.</h2>
             </div>
+            <Sidebar></Sidebar>
             <div className="books">
                 <input type="text" className="bookSearch"
                     value={searchTerm}
