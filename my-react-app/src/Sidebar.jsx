@@ -2,7 +2,7 @@ function Sidebar() {
     return (
         <div className="sidebar">
         <h2>Filters</h2>
-        <div className="filter-group">
+        <div className="cate-group">
         <h3>Categories</h3>
         <label>
           <input

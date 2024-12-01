@@ -30,7 +30,9 @@ function Books() {
     }
 
     return (
-        <div>
+        <div className="bookContent">
+            <Sidebar className="sidebar"></Sidebar>
+            <div className="Mainbar">
             <div className="bookListHeader">
                 <h2>From silent films to modern-day slashers, the world of horror cinema has evolved into a genre
                      that both terrifies and captivates audiences. This collection delves deep into the artistry, cultural impact,
@@ -38,7 +40,6 @@ function Books() {
                       e fear-inducing techniques that have left viewers trembling for decades. Discover how horror on the
                        big screen reflects society’s darkest fears and why we can’t look away.</h2>
             </div>
-            <Sidebar></Sidebar>
             <div className="books">
                 <input type="text" className="bookSearch"
                     value={searchTerm}
@@ -57,6 +58,7 @@ function Books() {
                 )}
                 </ul>
             </div>
+        </div>
         </div>)
 }
 
