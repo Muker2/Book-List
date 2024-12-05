@@ -27,6 +27,20 @@ body{
 
 .sidebar{
     min-width: 20%;
+    background-color: white;
+}
+
+.sidebar ul {
+    padding: 0;
+}
+.sidebar li{
+    list-style-type: none;
+    border: 1px solid gray;
+    padding: 5px;
+}
+
+.sidebar li:hover {
+    background-color: gray;
 }
 
 .bookList{
