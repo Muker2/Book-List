@@ -5,7 +5,6 @@ body{
 }
 
 .bookListHeader{
-    font-family: "Creepster", system-ui;
     color: white;
 }
 
@@ -54,7 +53,8 @@ body{
 .bookEntry{
     display: flex;
     width: 100%;
-    background-color: #FAF9F6;
+    background-color: white;
+    color: black;
     border: 1px solid black;
     transition: all .2s ease-in-out; 
 
@@ -63,6 +63,8 @@ body{
 .bookEntry:hover { 
     transform: scale(1.007); 
   }
+
+
 
 .bookEntry img {
     min-width: 128px;

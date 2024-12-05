@@ -6,6 +6,7 @@ function Books() {
     const [books, setBooks] = useState([]);
     const [searchBooks, setSearchBooks] = useState([]);
     const [searchTerm, setSearchTerm] = useState("");
+    const [searchCategory, setSearchCategory] = useState("");
 
     //Get products from API
     useEffect(() => {
@@ -29,9 +30,21 @@ function Books() {
         setSearchBooks(filteredItems);
     }
 
+    const handleCategoryChange = (e) => {
+        const searchCategory = e.target.textContent;
+        setSearchCategory(searchCategory);
+
+        const filteredCategory = books.filter((book) => {
+            const bookCategory = book.volumeInfo.categories?.[0];
+            return bookCategory === searchCategory;
+        });
+        setSearchBooks(filteredCategory);
+        console.log(searchCategory);
+    }
+
     return (
         <div className="bookContent">
-            <Sidebar value={searchTerm} onChange={handleInputChange}
+            <Sidebar value={searchTerm} onChange={handleInputChange} onClick={handleCategoryChange}
                 className="sidebar"></Sidebar>
             <div className="Mainbar">
                 <div className="bookListHeader">
