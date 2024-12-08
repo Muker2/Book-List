@@ -9,7 +9,7 @@ function Books() {
 
     //Get products from API
     useEffect(() => {
-        fetch("https://www.googleapis.com/books/v1/volumes?q=horror+subjectt&key=AIzaSyCrzZbMrZtyrmSvFrBQH5NEoiMxjf1CbO4")
+        fetch("https://www.googleapis.com/books/v1/volumes?q=search+terms&maxResults=40&key=AIzaSyCrzZbMrZtyrmSvFrBQH5NEoiMxjf1CbO4")
             .then(res => res.json())
             .then(data => {
                 console.log(data);
@@ -22,11 +22,15 @@ function Books() {
         const input = e.target.value;
         setSearchText(input);
 
+        if(input === " "){
+            setSearchBooks(books);}
+            else{
         const search = books.filter((book) => 
-            book.volumeInfo.title.toLowerCase().includes(searchText)    
+            book.volumeInfo.title.toLowerCase().includes(input)    
         );
 
         setSearchBooks(search);
+    }
     }
 
 
