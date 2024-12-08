@@ -38,7 +38,8 @@ function Books() {
                 <div className="bookListHeader">
 
 
-                    <ul className="bookList">{searchBooks.map((book) =>
+                    <ul className="bookList">{searchBooks.length == 0 ? 
+                    <p>No books found</p> : searchBooks.map((book) =>
                         <div className="bookEntry" key={book.id}>
                             <div className="bookImage">
                                 <img src={book.volumeInfo.imageLinks?.smallThumbnail}></img></div>
