@@ -5,8 +5,7 @@ import Sidebar from "./Sidebar";
 function Books() {
     const [books, setBooks] = useState([]);
     const [searchBooks, setSearchBooks] = useState([]);
-    const [searchTerm, setSearchTerm] = useState("");
-    const [searchCategory, setSearchCategory] = useState("");
+    const [searchText, setSearchText] = useState("");
 
     //Get products from API
     useEffect(() => {
@@ -20,31 +19,20 @@ function Books() {
     }, [])
 
     const handleInputChange = (e) => {
-        const searchTerm = e.target.value;
-        setSearchTerm(searchTerm);
+        const input = e.target.value;
+        setSearchText(input);
 
-        const filteredItems = books.filter((book) =>
-            book.volumeInfo.title.toLowerCase().includes(searchTerm.toLowerCase())
+        const search = books.filter((book) => 
+            book.volumeInfo.title.toLowerCase().includes(searchText)    
         );
 
-        setSearchBooks(filteredItems);
+        setSearchBooks(search);
     }
 
-    const handleCategoryChange = (e) => {
-        const searchCategory = e.target.textContent;
-        setSearchCategory(searchCategory);
-
-        const filteredCategory = books.filter((book) => {
-            const bookCategory = book.volumeInfo.categories?.[0];
-            return bookCategory === searchCategory;
-        });
-        setSearchBooks(filteredCategory);
-        console.log(searchCategory);
-    }
 
     return (
         <div className="bookContent">
-            <Sidebar value={searchTerm} onChange={handleInputChange} onClick={handleCategoryChange}
+            <Sidebar value={searchText} onChange={handleInputChange}
                 className="sidebar"></Sidebar>
             <div className="Mainbar">
                 <div className="bookListHeader">

@@ -1,16 +1,10 @@
-function Sidebar({ value, onChange, onClick }) {
-    const categories = ["Horror", "Drama", "Romance", "Documentary", "Comedy", "Criticism"];
+function Sidebar({props, onChange}) {
     return (
         <div className="sidebar">
             <input type="text" className="bookSearch"
-                value={value}
+                value={props}
                 onChange={onChange}
             />
-            <ul>{categories.map((category) => <div className="category" key={category.toString()} onClick={(e) => onClick(e)}
-            >
-                <li>{category} </li>
-            </div>)}
-            </ul>
         </div>
     )
 } export default Sidebar;
