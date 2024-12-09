@@ -1,4 +1,4 @@
-function Sidebar({props, array, onChange}) {
+function Sidebar({props, array, onChange, onClick}) {
     return (
         <div className="sidebar">
             <input type="text" className="bookSearch"
@@ -6,7 +6,7 @@ function Sidebar({props, array, onChange}) {
                 onChange={onChange}
             />
             <ul className="categories">{array.map((category, index) => 
-                <li key={index}>{category}</li>)}</ul>
+                <li key={index} onClick={onClick}>{category}</li>)}</ul>
         </div>
     )
 } export default Sidebar;
