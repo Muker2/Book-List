@@ -44,7 +44,7 @@ body{
 
 .bookList{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
         gap: 10px;
         padding: 0;
       
@@ -52,12 +52,23 @@ body{
 
 .bookEntry{
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
     background-color: white;
     color: black;
     border: 1px solid black;
     transition: all .2s ease-in-out; 
+}
 
+.bookEntry h3{
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 3; /* number of lines to show */
+           line-clamp: 3;
+   -webkit-box-orient: vertical;
 }
 
 .bookEntry:hover { 

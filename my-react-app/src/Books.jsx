@@ -4,6 +4,7 @@ import Sidebar from "./Sidebar";
 
 function Books() {
     const [books, setBooks] = useState([]);
+    const [category, setCategory] = useState([]);
     const [searchBooks, setSearchBooks] = useState([]);
     const [searchText, setSearchText] = useState("");
 
@@ -15,6 +16,11 @@ function Books() {
                 console.log(data);
                 setBooks(data.items);
                 setSearchBooks(data.items);
+
+                const categories = data.items.flatMap((item) => item.volumeInfo.categories || []); // Handle cases where categories might be undefined
+                const uniqueCategories = [...new Set(categories)];
+                setCategory(uniqueCategories);
+                console.log("Category" + uniqueCategories);
             })
     }, [])
 
@@ -36,7 +42,7 @@ function Books() {
 
     return (
         <div className="bookContent">
-            <Sidebar value={searchText} onChange={handleInputChange}
+            <Sidebar value={searchText} array={category} onChange={handleInputChange}
                 className="sidebar"></Sidebar>
             <div className="Mainbar">
                 <div className="bookListHeader">
@@ -49,8 +55,6 @@ function Books() {
                                 <img src={book.volumeInfo.imageLinks?.smallThumbnail}></img></div>
                             <div className="bookText">
                                 <h3>{book.volumeInfo.title}</h3>
-                                <h4>{book.volumeInfo.subtitle}</h4>
-                                <h5>{book.volumeInfo.description}</h5>
                             </div>
                         </div>
                     )}
