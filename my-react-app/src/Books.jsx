@@ -6,9 +6,7 @@ function Books() {
     const [books, setBooks] = useState([]);
     const [searchBooks, setSearchBooks] = useState([]);
     const [searchText, setSearchText] = useState("");
-
     const [category, setCategory] = useState([]);
-    const [searchCategory, setSearchCategory] = useState([]);
 
     //Get products from API
     useEffect(() => {
@@ -27,7 +25,7 @@ function Books() {
     }, [])
 
     const handleInputChange = (e) => {
-        const input = e.target.value;
+        var input = e.target.value;
         setSearchText(input);
 
         if (input === " ") {
@@ -44,7 +42,6 @@ function Books() {
 
     const handleInputClick = (e) => {
         const input = e.target.textContent;
-        setSearchCategory(input);
 
         const searchC = books.filter((book) =>
             book.volumeInfo.categories?.some((category) =>
@@ -55,11 +52,16 @@ function Books() {
 
 
     }
+    
+    const handleReset = (e) => {
+        setSearchBooks(books);
+        setSearchText("hello");
+    }
 
 
     return (
         <div className="bookContent">
-            <Sidebar value={searchText} array={category} onChange={handleInputChange} onClick={handleInputClick}
+            <Sidebar value={searchText} array={category} onChange={handleInputChange} onClick={handleInputClick} onReset={handleReset}
                 className="sidebar"></Sidebar>
             <div className="Mainbar">
                 <div className="bookListHeader">
