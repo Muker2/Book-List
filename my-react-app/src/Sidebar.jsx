@@ -5,9 +5,10 @@ function Sidebar({props, array, onChange, onClick, onReset}) {
                 value={props}
                 onChange={onChange}
             />
-            <button className="defaultBtn" onClick={onReset}>Reset</button>
             <ul className="categories">{array.map((category, index) => 
                 <li key={index} onClick={onClick}>{category}</li>)}</ul>
+                            <button className="defaultBtn" onClick={onReset}>Reset</button>
+
         </div>
     )
 } export default Sidebar;

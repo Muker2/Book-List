@@ -20,7 +20,6 @@ function Books() {
                 const categories = data.items.flatMap((item) => item.volumeInfo.categories || []);
                 const uniqueCategories = [...new Set(categories)];
                 setCategory(uniqueCategories);
-                console.log("Category" + uniqueCategories);
             })
     }, [])
 
@@ -45,14 +44,14 @@ function Books() {
 
         const searchC = books.filter((book) =>
             book.volumeInfo.categories?.some((category) =>
-            category === input)
-    );
+                category === input)
+        );
 
         setSearchBooks(searchC);
 
 
     }
-    
+
     const handleReset = (e) => {
         setSearchBooks(books);
         setSearchText("hello");

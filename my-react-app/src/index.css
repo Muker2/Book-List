@@ -1,6 +1,6 @@
 body{
     font-family: Arial, Helvetica, sans-serif;
-    background-color:  #301934 ;
+    background-color:  white ;
 
 }
 
@@ -34,19 +34,23 @@ body{
 }
 .sidebar li{
     list-style-type: none;
-    border: 1px solid gray;
-    padding: 5px;
+    padding: 10px;
 }
 
 .sidebar li:hover {
-    background-color: gray;
+    background-color: #E8E8E8;
+}
+
+.mainbar{
+    top: 0
 }
 
 .bookList{
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-        gap: 10px;
-        padding: 0;
+    gap: 10px;
+    padding: 0;
+    margin: 0;
       
 }
 
@@ -75,6 +79,9 @@ body{
     transform: scale(1.007); 
   }
 
+  .bookSearch{
+    display: none
+  }
 
 
 .bookEntry img {
