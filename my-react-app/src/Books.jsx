@@ -7,7 +7,7 @@ function Books() {
     const [searchBooks, setSearchBooks] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [category, setCategory] = useState([]);
-    const [favorite, setFavorite] = useState([]);
+    const [favorites, setFavorites] = useState([]);
 
     //Get products from API
     useEffect(() => {
@@ -23,6 +23,11 @@ function Books() {
                 setCategory(uniqueCategories);
             })
     }, [])
+
+    useEffect(() => {
+        localStorage.setItem('favorites', JSON.stringify(favorites));
+        console.log(favorites);
+      }, [favorites]);
 
     const handleInputChange = (e) => {
         var input = e.target.value;
@@ -58,6 +63,9 @@ function Books() {
         setSearchText("hello");
     }
 
+    const handleFavorites = (book) => {
+        setFavorites((prevFavorites) => [...prevFavorites, book]);
+    };
 
     return (
         <div className="bookContent">
@@ -74,7 +82,7 @@ function Books() {
                                     <img src={book.volumeInfo.imageLinks?.smallThumbnail}></img></div>
                                 <div className="bookText">
                                     <h3>{book.volumeInfo.title}</h3>
-                                    <button>Add to Favorites</button>
+                                    <button onClick={() => handleFavorites(book)}>Add to Favorites</button>
                                 </div>
                             </div>
                         )}
