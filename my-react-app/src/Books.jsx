@@ -7,6 +7,7 @@ function Books() {
     const [searchBooks, setSearchBooks] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [category, setCategory] = useState([]);
+    const [favorite, setFavorite] = useState([]);
 
     //Get products from API
     useEffect(() => {
@@ -73,6 +74,7 @@ function Books() {
                                     <img src={book.volumeInfo.imageLinks?.smallThumbnail}></img></div>
                                 <div className="bookText">
                                     <h3>{book.volumeInfo.title}</h3>
+                                    <button>Add to Favorites</button>
                                 </div>
                             </div>
                         )}
