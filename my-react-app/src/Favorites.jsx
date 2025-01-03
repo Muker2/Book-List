@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import Navbar from "./Navbar";
 
 function Favorites(){
     const [favorites, setFavorites] = useState("");
@@ -13,6 +14,8 @@ function Favorites(){
 
     return(
         <>
+                <Navbar />
+
         <ul className="bookList">{favorites.length == 0 ?
                         <p>No books found</p> : favorites.map((favorite) =>
                             <div className="bookEntry" key={favorite.id}>

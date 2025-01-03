@@ -1,28 +1,12 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import useFetch from "./useFetch";
 import Sidebar from "./Sidebar";
 
 function Books() {
-    const [books, setBooks] = useState([]);
-    const [searchBooks, setSearchBooks] = useState([]);
     const [searchText, setSearchText] = useState("");
-    const [category, setCategory] = useState([]);
     const [favorites, setFavorites] = useState([]);
-
-    //Get products from API
-    useEffect(() => {
-        fetch("https://www.googleapis.com/books/v1/volumes?q=search+terms&maxResults=40&key=AIzaSyCrzZbMrZtyrmSvFrBQH5NEoiMxjf1CbO4")
-            .then(res => res.json())
-            .then(data => {
-                console.log(data);
-                setBooks(data.items);
-                setSearchBooks(data.items);
-
-                const categories = data.items.flatMap((item) => item.volumeInfo.categories || []);
-                const uniqueCategories = [...new Set(categories)];
-                setCategory(uniqueCategories);
-            })
-    }, [])
+    const { books, searchBooks, setSearchBooks, category } = useFetch();
 
     useEffect(() => {
         localStorage.setItem('favorites', JSON.stringify(favorites));

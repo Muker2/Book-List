@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import Favorites from './Favorites.jsx'
+import Book from './Book.jsx'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 const router = createBrowserRouter([{
@@ -12,6 +13,10 @@ const router = createBrowserRouter([{
 {
   path: "/favorites",
   element: <Favorites />
+},
+{
+  path: "/books/:bookID",
+  element: <Book />
 }
 ]);
 
