@@ -1,23 +1,34 @@
 import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+import useFetch from "./useFetch";
 
 
-function Book () {
-    const [books, setBooks] = useState([]);
-    
-    const {bookID} = useParams();
+function Book() {
+    const { id } = useParams();
+    //const { books, loading, error } = useFetch(`https://www.googleapis.com/books/v1/volumes/${id}`);
+    const { books, loading, error } = useFetch("https://www.googleapis.com/books/v1/volumes?q=search+terms&maxResults=40&key=AIzaSyCrzZbMrZtyrmSvFrBQH5NEoiMxjf1CbO4");
 
-    useEffect(() => {
-            fetch("https://www.googleapis.com/books/v1/volumes/" + bookID + "?key=AIzaSyCrzZbMrZtyrmSvFrBQH5NEoiMxjf1CbO4")
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    setBooks(data);
-                })
-        }, [])
+    const bookDetails = books.find(book => book.id === id);
 
-    return <div>Book</div>
+
+    if (loading) {
+        return <p>Loading...</p>;
+    }
+
+    if (error) {
+        return <p>Error: {error}</p>;
+    }
+
+    if (!books || !books.volumeInfo) {
+        return <p>No book details found</p>;
+    }
+
+    return (
+    <div>
+        <h1>{bookDetails.volumeInfo.title}</h1>
+        </div>
+)
 }
 
 export default Book;

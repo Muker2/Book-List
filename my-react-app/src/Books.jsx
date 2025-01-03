@@ -2,11 +2,12 @@ import { useState } from "react";
 import { useEffect } from "react";
 import useFetch from "./useFetch";
 import Sidebar from "./Sidebar";
+import { Link } from "react-router-dom";
 
 function Books() {
     const [searchText, setSearchText] = useState("");
     const [favorites, setFavorites] = useState([]);
-    const { books, searchBooks, setSearchBooks, category } = useFetch();
+    const { books, searchBooks, setSearchBooks, category } = useFetch("https://www.googleapis.com/books/v1/volumes?q=search+terms&maxResults=40&key=AIzaSyCrzZbMrZtyrmSvFrBQH5NEoiMxjf1CbO4");
 
     useEffect(() => {
         localStorage.setItem('favorites', JSON.stringify(favorites));
@@ -65,7 +66,7 @@ function Books() {
                                 <div className="bookImage">
                                     <img src={book.volumeInfo.imageLinks?.smallThumbnail}></img></div>
                                 <div className="bookText">
-                                    <h3>{book.volumeInfo.title}</h3>
+                                    <Link to={`/bookdetails/${book.id}`}>{book.volumeInfo.title}</Link>
                                     <button onClick={() => handleFavorites(book)}>Add to Favorites</button>
                                 </div>
                             </div>
