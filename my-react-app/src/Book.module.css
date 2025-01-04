@@ -1,0 +1,21 @@
+.bookDetails {
+    background-color: blue;
+    display: flex;
+    width: 90%;
+    margin: auto;
+}
+
+.bookCover{
+    display: flex;
+    justify-content: center;
+    min-width: 40%;
+}
+
+.bookCover img{
+    min-width: 50%;
+}
+
+.bookDetails h1{
+    font-size: 
+    30px;
+}
