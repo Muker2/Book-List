@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 
 function useFetch(url) {
     const [books, setBooks] = useState([]);
+    const [book, setBook] = useState([]);
     const [searchBooks, setSearchBooks] = useState([]);
     const [category, setCategory] = useState([]);
     const [loading, setLoading] = useState(true); // Loading state
@@ -20,13 +21,16 @@ function useFetch(url) {
                 return res.json();
             })
             .then(data => {
+                if(data.items){
                 setBooks(data.items);
                 setSearchBooks(data.items);
-                console.log(data.items)
 
                 const categories = data.items.flatMap((item) => item.volumeInfo.categories || []);
                 const uniqueCategories = [...new Set(categories)];
                 setCategory(uniqueCategories);
+                }else{
+                    setBook(data);
+                }
             })
             .catch((err) => {
                 setError(err.message);
@@ -36,7 +40,7 @@ function useFetch(url) {
             });
     }, [url])
 
-    return { books, searchBooks, setSearchBooks, category, loading, error };
+    return { books, book, searchBooks, setSearchBooks, category, loading, error };
 };
 
 export default useFetch;

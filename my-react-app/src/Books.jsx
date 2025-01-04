@@ -52,6 +52,8 @@ function Books() {
         setFavorites((prevFavorites) => [...prevFavorites, book]);
     };
 
+    console.log(books);
+
     return (
         <div className="bookContent">
             <Sidebar value={searchText} array={category} onChange={handleInputChange} onClick={handleInputClick} onReset={handleReset}

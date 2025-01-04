@@ -6,11 +6,9 @@ import useFetch from "./useFetch";
 
 function Book() {
     const { id } = useParams();
-    //const { books, loading, error } = useFetch(`https://www.googleapis.com/books/v1/volumes/${id}`);
-    const { books, loading, error } = useFetch("https://www.googleapis.com/books/v1/volumes?q=search+terms&maxResults=40&key=AIzaSyCrzZbMrZtyrmSvFrBQH5NEoiMxjf1CbO4");
+    const { book, books, loading, error } = useFetch(`https://www.googleapis.com/books/v1/volumes/${id}`);
 
-    const bookDetails = books.find(book => book.id === id);
-
+    console.log(book);
 
     if (loading) {
         return <p>Loading...</p>;
@@ -20,13 +18,13 @@ function Book() {
         return <p>Error: {error}</p>;
     }
 
-    if (!books || !books.volumeInfo) {
+    if (!books || !book.volumeInfo) {
         return <p>No book details found</p>;
     }
 
     return (
     <div>
-        <h1>{bookDetails.volumeInfo.title}</h1>
+        <h1>{book.volumeInfo.title}</h1>
         </div>
 )
 }
