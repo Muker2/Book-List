@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 
 function useFetch(url) {
-    const [books, setBooks] = useState([]);
-    const [book, setBook] = useState([]);
-    const [searchBooks, setSearchBooks] = useState([]);
-    const [category, setCategory] = useState([]);
+    const [books, setBooks] = useState([]); // Used for book list in main component
+    const [book, setBook] = useState([]); // Relevant for book details page 
+    const [searchBooks, setSearchBooks] = useState([]); // Used for search function in Main component
+    const [category, setCategory] = useState([]); // Used to create the categories for the sidebar in main component
     const [loading, setLoading] = useState(true); // Loading state
     const [error, setError] = useState(null); // Error state
 
