@@ -1,3 +1,4 @@
+import styles from "./Books.module.css";
 import { useState } from "react";
 import { useEffect } from "react";
 import useFetch from "./useFetch";
@@ -55,19 +56,19 @@ function Books() {
     console.log(books);
 
     return (
-        <div className="bookContent">
+        <div className={styles.bookContent}>
             <Sidebar value={searchText} array={category} onChange={handleInputChange} onClick={handleInputClick} onReset={handleReset}
                 className="sidebar"></Sidebar>
-            <div className="Mainbar">
-                <div className="bookListHeader">
+            <div className={styles.Mainbar}>
+                <div className={styles.bookListHeader}>
 
 
-                    <ul className="bookList">{searchBooks.length == 0 ?
+                    <ul className={styles.bookList}>{searchBooks.length == 0 ?
                         <p>No books found</p> : searchBooks.map((book) =>
-                            <div className="bookEntry" key={book.id}>
-                                <div className="bookImage">
+                            <div className={styles.bookEntry} key={book.id}>
+                                <div className={styles.bookImage}>
                                     <img src={book.volumeInfo.imageLinks?.smallThumbnail}></img></div>
-                                <div className="bookText">
+                                <div className={styles.bookText}>
                                     <Link to={`/bookdetails/${book.id}`}>{book.volumeInfo.title}</Link>
                                     <button onClick={() => handleFavorites(book)}>Add to Favorites</button>
                                 </div>
