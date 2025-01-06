@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import useFetch from "./useFetch";
 import styles from "./Book.module.css";
+import Navbar from "./Navbar"
 
 
 function Book() {
@@ -27,6 +28,8 @@ function Book() {
     const language = publishedLanguage.charAt(0).toUpperCase() + publishedLanguage.slice(1);
 
     return (
+        <>
+        <Navbar />
         <div className={styles.bookDetails}>
             <div className={styles.bookCover}>
                 <img src={book.volumeInfo.imageLinks?.smallThumbnail}></img>
@@ -42,11 +45,12 @@ function Book() {
                 <div className={styles.bookPublish}>
                     <h3>Publisher {book.volumeInfo.publisher} </h3>
                     <h3>Date {book.volumeInfo.publishedDate} </h3>
-                    <h3>Date {book.volumeInfo.printedPageCount} </h3>
+                    <h3>Page Number {book.volumeInfo.printedPageCount} </h3>
                     <h3>Language {language}</h3>
                 </div>
             </div>
         </div>
+        </>
     )
 }
 

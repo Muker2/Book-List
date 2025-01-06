@@ -1,8 +1,8 @@
 .bookDetails {
-    background-color: blue;
     display: flex;
-    width: 90%;
+    width: 80%;
     margin: auto;
+    border: 1px solid black
 }
 
 .bookCover{
@@ -13,9 +13,28 @@
 
 .bookCover img{
     min-width: 50%;
+    filter: drop-shadow(1rem 1rem 10px gray)
 }
 
 .bookDetails h1{
     font-size: 
     30px;
+}
+
+.bookDetails h4 {
+    font-weight: normal;
+}
+
+.bookTitle h4{
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 5; /* number of lines to show */
+           line-clamp: 5;
+   -webkit-box-orient: vertical;
+}
+
+.bookPublish h3{
+    font-size: 16px;
+    font-weight: normal;
 }
