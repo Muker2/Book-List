@@ -48,6 +48,7 @@ function Book() {
                     <h3>Page Number {book.volumeInfo.printedPageCount} </h3>
                     <h3>Language {language}</h3>
                 </div>
+                <button>Add to favorites</button>
             </div>
         </div>
         </>
