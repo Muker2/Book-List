@@ -17,8 +17,8 @@
 
 .bookList{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
     padding: 0;
     margin: 0;
       
@@ -29,10 +29,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 90%;
     background-color: white;
     color: black;
-    border: 1px solid black;
+    border: 2px solid #aaaaaa;
     transition: all .2s ease-in-out; 
     padding: 5px
 }
@@ -46,8 +45,13 @@
    -webkit-box-orient: vertical;
 }
 
-.bookEntry:hover { 
-    transform: scale(1.007); 
+.booklink{
+    width: 200px;
+    background-color: red !important;
+}
+
+.bookEntry img:hover { 
+    transform: scale(1.01); 
   }
 
   .bookSearch{
@@ -57,6 +61,7 @@
 
 .bookEntry img {
     min-width: 128px;
+    min-height: 200px;
 }
 
 .bookEntry h3, h5{
@@ -70,6 +75,20 @@
    -webkit-line-clamp: 3; /* number of lines to show */
            line-clamp: 3;
    -webkit-box-orient: vertical;
+}
+
+.bookEntry button {
+    background-color: black;
+    color: white;
+    width: 150px;
+    height: 20px;
+    border: none;
+}
+
+.bookEntry a {
+    white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
 }
 
 .bookText {
