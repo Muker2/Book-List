@@ -13,7 +13,7 @@ function Books() {
     useEffect(() => {
         localStorage.setItem('favorites', JSON.stringify(favorites));
         console.log(favorites);
-      }, [favorites]);
+    }, [favorites]);
 
     const handleInputChange = (e) => {
         var input = e.target.value;
@@ -59,10 +59,8 @@ function Books() {
         <div className={styles.bookContent}>
             <Sidebar value={searchText} array={category} onChange={handleInputChange} onClick={handleInputClick} onReset={handleReset}
                 className="sidebar"></Sidebar>
-            <div className={styles.Mainbar}>
+            <div className={styles.mainbar}>
                 <div className={styles.bookListHeader}>
-
-
                     <ul className={styles.bookList}>{searchBooks.length == 0 ?
                         <p>No books found</p> : searchBooks.map((book) =>
                             <div className={styles.bookEntry} key={book.id}>
@@ -70,10 +68,10 @@ function Books() {
                                     <img src={book.volumeInfo.imageLinks?.smallThumbnail}></img></div>
                                 <div className={styles.bookText}>
                                     <div classname={styles.booklink}>
-                                    <Link to={`/bookdetails/${book.id}`}>{book.volumeInfo.title}</Link>
+                                        <Link to={`/bookdetails/${book.id}`}>{book.volumeInfo.title}</Link>
                                     </div>
                                     <p>{book.volumeInfo.authors}</p>
-                                    <button onClick={() => handleFavorites(book)}>Add to Favorites</button>
+                                    <button onClick={() => this.handleFavorites(book)}>Add to Favorites</button>
                                 </div>
                             </div>
                         )}
