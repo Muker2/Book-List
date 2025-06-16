@@ -17,8 +17,11 @@
 }
 
 .bookList{
-    display: flex;
-    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    padding: 0;
+    margin: 0;
       
 }
 
@@ -31,7 +34,8 @@
     color: black;
     border: 2px solid #aaaaaa;
     transition: all .2s ease-in-out; 
-    padding: 5px
+    padding: 5px;
+    max-width: 100%;
 }
 
 .bookEntry img:hover { 
@@ -50,6 +54,15 @@
 
 .bookEntry h3, h5{
     margin-left: 10px;
+}
+
+.bookEntry h5{
+    overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   -webkit-line-clamp: 3; /* number of lines to show */
+           line-clamp: 3;
+   -webkit-box-orient: vertical;
 }
 
 .bookEntry button {

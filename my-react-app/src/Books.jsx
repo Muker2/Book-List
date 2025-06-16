@@ -68,7 +68,7 @@ function Books() {
                                     <img src={book.volumeInfo.imageLinks?.smallThumbnail}></img></div>
                                 <div className={styles.bookText}>
                                     <div classname={styles.booklink}>
-                                        <Link to={`/bookdetails/${book.id}`}>{book.volumeInfo.title}</Link>
+                                    <Link to={`/bookdetails/${book.id}`}>{book.volumeInfo.title}</Link>
                                     </div>
                                     <p>{book.volumeInfo.authors}</p>
                                     <button onClick={() => this.handleFavorites(book)}>Add to Favorites</button>
