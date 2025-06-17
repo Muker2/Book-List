@@ -69,8 +69,9 @@ function Books() {
                                 <div className={styles.bookText}>
                                     <div classname={styles.booklink}>
                                     <Link to={`/bookdetails/${book.id}`}>{book.volumeInfo.title}</Link>
+                                    <p>{book.volumeInfo.authors?.[0 ]}</p>
+                                    <p>{book.volumeInfo.description}</p>
                                     </div>
-                                    <p>{book.volumeInfo.authors}</p>
                                     <button onClick={() => this.handleFavorites(book)}>Add to Favorites</button>
                                 </div>
                             </div>
